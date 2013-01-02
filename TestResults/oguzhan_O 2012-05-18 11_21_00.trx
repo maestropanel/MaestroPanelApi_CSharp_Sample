@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b275dadd-6581-46a6-a102-f499873fc202" name="oguzhan@O 2012-05-18 11:21:00" runUser="O\oguzhan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9b349d8c-ddef-4ab6-8b8e-85bf4faa623d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="oguzhan_O 2012-05-18 11_21_00">
+      <DeploymentItem filename="O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Debug\MaestroPanelApi.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-05-18T11:21:00.7346483+03:00" queuing="2012-05-18T11:21:01.7267050+03:00" start="2012-05-18T11:21:01.8977148+03:00" finish="2012-05-18T11:21:24.7100196+03:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="O" outcome="Error" timestamp="2012-05-18T11:21:24.7090195+03:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DomainCreateTest" storage="o:\projects\maestropanelapi_csharp_sample\maestropanelapi_test\bin\debug\maestropanelapi_test.dll" id="e7df5b24-07e1-ff19-0346-8fd0dfc1c661">
+      <Execution id="4de8417b-ab0d-48c0-a2fc-db4fd14cd177" />
+      <TestMethod codeBase="O:/Projects/MaestroPanelApi_CSharp_Sample/MaestroPanelApi_Test/bin/Debug/MaestroPanelApi_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MaestroPanelApi_Test.ClientTest, MaestroPanelApi_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DomainCreateTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="e7df5b24-07e1-ff19-0346-8fd0dfc1c661" executionId="4de8417b-ab0d-48c0-a2fc-db4fd14cd177" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4de8417b-ab0d-48c0-a2fc-db4fd14cd177" testId="e7df5b24-07e1-ff19-0346-8fd0dfc1c661" testName="DomainCreateTest" computerName="O" duration="00:00:22.6532957" startTime="2012-05-18T11:21:02.0567239+03:00" endTime="2012-05-18T11:21:24.7100196+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4de8417b-ab0d-48c0-a2fc-db4fd14cd177">
+    </UnitTestResult>
+  </Results>
+</TestRun>

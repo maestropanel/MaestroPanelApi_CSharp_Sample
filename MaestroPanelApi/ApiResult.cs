@@ -6,6 +6,23 @@
     using System.Xml;
     using System.Xml.Serialization;
 
+    public enum UserTypes
+    {
+        Admin,
+        Reseller,
+        DomainUser,
+        EmailUser,
+        FtpUser,
+        None
+    }
+
+    public enum DomainStatuses
+    {
+        Start,
+        Stop,
+        inProcess
+    }
+
     [Serializable]
     [XmlRoot("Result")]
     public class ApiResult
@@ -17,7 +34,6 @@
 
         [XmlElement]
         public string Message { get; set; }
-
 
         [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public XmlNode OperationResult
@@ -95,4 +111,58 @@
             return deSerializeObject;
         }
     }
+
+    [Serializable]
+    [XmlRoot("Domain")]
+    public class ExportPostOffice
+    {
+        [XmlAttribute]
+        public string Name { get; set; }
+
+        [XmlAttribute]
+        public long Quota { get; set; }
+
+        [XmlArray("Accounts")]
+        [XmlArrayItem("Account")]
+        public ExportPostOfficeAccount[] Accounts { get; set; }
+    }
+
+    public class ExportPostOfficeAccount
+    {
+        [XmlAttribute]
+        public string Name { get; set; }
+
+        [XmlAttribute]
+        public bool Status { get; set; }
+
+        [XmlAttribute]
+        public long Quota { get; set; }
+
+        [XmlAttribute]
+        public int Usage { get; set; }
+    }
+
+    public class DomainListItem
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DomainStatuses Status { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public string OwnerName { get; set; }
+    }
+
+    public class LoginListItem
+    {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public UserTypes LoginType { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public int Status { get; set; }
+        public bool ApiAccess { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Organization { get; set; }
+    }
+
 }

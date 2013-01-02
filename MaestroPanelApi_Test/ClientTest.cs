@@ -70,14 +70,14 @@ namespace MaestroPanelApi_Test
         [TestMethod()]
         public void DomainCreateTest()
         {
-            string ApiKey = "1_885bd9d868494d078d4394809f5ca7ac";
+            string ApiKey = "43_6a8200676c0d42f4b1c00094930d3e19";
             string apiHostdomain = "localhost";
-            int port = 9715;
+            int port = 28411;
             bool ssl = false; 
             Client target = new Client(ApiKey, apiHostdomain, port, ssl);
 
-            string name = "demo1.com";
-            string planAlias = "GOLD_PLAN";
+            string name = "demo4.com";
+            string planAlias = "DALISA";
             string username = "demo1.com";
             string password = "kr3m@12!";
             bool activedomainuser = false;

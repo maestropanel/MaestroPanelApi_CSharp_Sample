@@ -3,3 +3,7 @@ O:\Projects\MaestroPanelApiConsole_Sample\MaestroPanelApi\bin\Debug\MaestroPanel
 O:\Projects\MaestroPanelApiConsole_Sample\MaestroPanelApi\obj\Debug\ResolveAssemblyReference.cache
 O:\Projects\MaestroPanelApiConsole_Sample\MaestroPanelApi\obj\Debug\MaestroPanelApi.dll
 O:\Projects\MaestroPanelApiConsole_Sample\MaestroPanelApi\obj\Debug\MaestroPanelApi.pdb
+O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Debug\MaestroPanelApi.dll
+O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Debug\MaestroPanelApi.pdb
+O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\obj\Debug\MaestroPanelApi.dll
+O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\obj\Debug\MaestroPanelApi.pdb
