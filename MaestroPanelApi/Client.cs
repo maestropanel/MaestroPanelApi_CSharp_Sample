@@ -240,8 +240,7 @@ using System.Collections.Generic;
 
             return SendApi("Domain/DeleteFtpAccount", "POST", _args);
         }
-
-
+        
         public ApiResult ChangeFtpPassword(string name, string account, string newpassword)
         {
             var _args = new NameValueCollection();
@@ -251,6 +250,19 @@ using System.Collections.Generic;
             _args.Add("newpassword", newpassword);
 
             return SendApi("Domain/ChangeFtpPassword", "POST", _args);
+        }
+
+        public ApiResult ChangeDatabaseUserPassword(string name, string dbtype, string database, string username, string newpassword)
+        {
+            var _args = new NameValueCollection();
+            _args.Add("key", _apiKey);
+            _args.Add("name", name);
+            _args.Add("dbtype", dbtype);
+            _args.Add("database", database);
+            _args.Add("username", username);
+            _args.Add("newpassword", newpassword);
+
+            return SendApi("Domain/ChangeDatabaseUserPassword", "POST", _args);
         }
 
         public ApiResult ResellerCreate(string username, string password, string planAlias,
@@ -355,6 +367,27 @@ using System.Collections.Generic;
             return ApiResult.DeSerializeObject<List<LoginListItem>>(xmlString);
         }
 
+        public ApiResult SetDnsZone(string name, string soa_expired, string soa_ttl, 
+                                                string soa_refresh, string soa_email, 
+                                                string soa_retry, string soa_serial, string primaryServer, 
+                                                bool suppress_host_ip, params string[] records)
+        {
+            var _args = new NameValueCollection();
+            _args.Add("key", _apiKey);            
+            _args.Add("name", name);
+            _args.Add("soa_expired", soa_expired);
+            _args.Add("soa_ttl", soa_ttl);
+            _args.Add("soa_refresh", soa_refresh);
+            _args.Add("soa_email", soa_email);
+            _args.Add("soa_serial", soa_serial);
+            _args.Add("primaryServer", primaryServer);
+            _args.Add("suppress_host_ip", suppress_host_ip.ToString().ToLowerInvariant());
+            _args.Add("suppress_response_codes", "true");
+            
+            return SendApi("Domain/SetDnsZone", "POST", _args, "record", records);
+        }
+
+        #region Privates
         private string GetData(string action, string method, NameValueCollection _parameters)
         {
             var _result = "";
@@ -382,7 +415,7 @@ using System.Collections.Generic;
         private ApiResult SendApi(string action, string method, NameValueCollection _parameters)
         {
             var _result = new ApiResult();
-            var _uri = new Uri(String.Format("{0}/{1}", _apiUri, action));
+            var _uri = new Uri(String.Format("{0}/{1}?suppress_response_codes=true", _apiUri, action));
 
             try
             {
@@ -404,6 +437,54 @@ using System.Collections.Generic;
             }
 
             return _result;
+        }
+
+        private ApiResult SendApi(string action, string method, NameValueCollection _parameters, string name, string[] values)
+        {
+            var _result = new ApiResult();
+            var _uri = new Uri(String.Format("{0}/{1}?suppress_response_codes=true", _apiUri, action));
+
+            var _sb = new StringBuilder();
+
+            foreach (var item in _parameters.AllKeys)
+                _sb.AppendFormat("{0}={1}&", HttpUtility.UrlEncode(item), HttpUtility.UrlEncode(_parameters[item]));
+
+            foreach (var item in values)
+                _sb.AppendFormat("{0}={1}&", name, item);
+
+            _sb.Length -= 1;
+
+            try
+            {
+
+                using (var c = new WebClient())
+                {
+                    c.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                    var _responseText = c.UploadString(_uri, _sb.ToString());
+
+                    _result = ApiResult.DeSerializeObject<ApiResult>(_responseText);
+                }                
+                
+            }
+            catch (Exception ex)
+            {
+                _result.Code = -1;
+                _result.Message = ex.Message;
+                _result.OperationResultString = ex.StackTrace;
+            }
+
+            return _result;
+        }
+
+        private void WriteData(ref HttpWebRequest _request, NameValueCollection _parameters, string name, string[] values)
+        {
+            byte[] byteData = CreateParameters(_parameters, name, values);
+            _request.ContentLength = byteData.Length;
+
+            using (Stream postStream = _request.GetRequestStream())
+            {
+                postStream.Write(byteData, 0, byteData.Length);
+            }
         }
 
         private void WriteData(ref HttpWebRequest _request, NameValueCollection _parameters)
@@ -441,9 +522,23 @@ using System.Collections.Generic;
             return UTF8Encoding.UTF8.GetBytes(_sb.ToString());
         }
 
+        private byte[] CreateParameters(NameValueCollection _parameters, string name, string[] values)
+        {
+            var _sb = new StringBuilder();
+
+            foreach (var item in _parameters.AllKeys)
+                _sb.AppendFormat("{0}={1}&", HttpUtility.UrlEncode(item), HttpUtility.UrlEncode(_parameters[item]));
+
+            foreach (var item in values)
+                _sb.AppendFormat("{0}={1}&", name, item);
+
+            return UTF8Encoding.UTF8.GetBytes(_sb.ToString());
+        }
+
         private string GeneratePassword(int Length)
         {
             return System.Web.Security.Membership.GeneratePassword(8, 2);
         }
+        #endregion
     }
 }

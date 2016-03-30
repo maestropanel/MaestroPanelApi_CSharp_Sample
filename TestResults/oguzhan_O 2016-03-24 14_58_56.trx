@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ad33460f-7d45-4adb-b04f-56410ab5a447" name="oguzhan@O 2016-03-24 14:58:56" runUser="O\oguzhan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9b349d8c-ddef-4ab6-8b8e-85bf4faa623d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="oguzhan_O 2016-03-24 14_58_56">
+      <DeploymentItem filename="O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Release\MaestroPanelApi.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2016-03-24T14:58:56.8812947+02:00" queuing="2016-03-24T14:58:57.8409318+02:00" start="2016-03-24T14:58:57.8879451+02:00" finish="2016-03-24T14:58:59.0336573+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="SetDnsZoneTest" storage="o:\projects\maestropanelapi_csharp_sample\maestropanelapi_test\bin\release\maestropanelapi_test.dll" id="86743773-0ff7-a51c-c892-f55e037e9873">
+      <Execution id="8fa510d1-ac98-41d3-a37d-fe7f1c56fc2d" />
+      <TestMethod codeBase="O:/Projects/MaestroPanelApi_CSharp_Sample/MaestroPanelApi_Test/bin/Release/MaestroPanelApi_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MaestroPanelApi_Test.ClientTest, MaestroPanelApi_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetDnsZoneTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="86743773-0ff7-a51c-c892-f55e037e9873" executionId="8fa510d1-ac98-41d3-a37d-fe7f1c56fc2d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="8fa510d1-ac98-41d3-a37d-fe7f1c56fc2d" testId="86743773-0ff7-a51c-c892-f55e037e9873" testName="SetDnsZoneTest" computerName="O" duration="00:00:00.5824824" startTime="2016-03-24T14:58:57.9674533+02:00" endTime="2016-03-24T14:58:58.9596420+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8fa510d1-ac98-41d3-a37d-fe7f1c56fc2d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;0&gt;. Actual:&lt;-1&gt;. </Message>
+          <StackTrace>   at MaestroPanelApi_Test.ClientTest.SetDnsZoneTest() in O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi_Test\ClientTest.cs:line 172
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

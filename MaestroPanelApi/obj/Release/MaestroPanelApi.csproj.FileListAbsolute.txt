@@ -2,4 +2,3 @@ O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Release\MaestroPan
 O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Release\MaestroPanelApi.pdb
 O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\obj\Release\MaestroPanelApi.dll
 O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\obj\Release\MaestroPanelApi.pdb
-O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\obj\Release\MaestroPanelApi.csprojResolveAssemblyReference.cache

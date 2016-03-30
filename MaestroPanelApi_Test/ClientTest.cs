@@ -1,6 +1,8 @@
 ﻿using MaestroPanelApi;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MaestroPanelApi_Test
 {
@@ -140,6 +142,41 @@ namespace MaestroPanelApi_Test
             
             ApiResult actual = target.DomainStop(name);
             Assert.AreEqual(0, actual.Code);                       
+        }
+
+        [TestMethod()]
+        public void SetDnsZoneTest()
+        {
+            string ApiKey = "ddd";
+            string apiHostdomain = "ddd";
+            int port = 9715;
+            bool ssl = false; 
+
+            Client target = new Client(ApiKey, apiHostdomain, port, ssl); // TODO: Initialize to an appropriate value
+            string name = "testmaestro2.com";  
+            
+            var soa_expired = "3600";
+            var soa_ttl = "172800";
+            var soa_refresh = "8640";
+            var soa_email = "ping.maestropanel.com";
+            var soa_retry = "7200";
+            var soa_serial = "2016032412141";
+            var primaryServer = "ns1.hosting.com";
+
+            var records = new List<string>();
+            records.Add("@,A,4.2.2.1,0");
+            records.Add("www,CNAME,domain.com,0");
+            records.Add("mail,A,192.168.5.6,0");
+            records.Add("@,MX,mail.tatava.com,10");
+            records.Add("@,NS,ns1.domain.com,0");
+            records.Add("@,NS,ns2.domain.com,0");
+            records.Add("@,TXT,spf=v1 mx -all,0");
+            records.Add("dkim,CNAME,mx.yandex.com,0");
+
+            ApiResult actual = target.SetDnsZone(name, soa_expired, soa_ttl, soa_refresh, soa_email, soa_retry, soa_serial, primaryServer, false, records.ToArray());
+            Debug.WriteLine(actual.Message);
+            
+            Assert.AreEqual(0, actual.Code);
         }
     }
 }

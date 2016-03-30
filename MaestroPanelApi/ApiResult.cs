@@ -29,8 +29,11 @@
     {
         private XmlNode cDataAttributeField;
 
-        [XmlElement]
+        [XmlElement(ElementName="ErrorCode")]
         public int Code { get; set; }
+
+        [XmlElement(ElementName = "StatusCode")]
+        public int StatusCode { get; set; }
 
         [XmlElement]
         public string Message { get; set; }

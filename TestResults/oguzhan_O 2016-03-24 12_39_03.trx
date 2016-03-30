@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="1263bd15-acdd-4bb2-a840-a46073929997" name="oguzhan@O 2016-03-24 12:39:03" runUser="O\oguzhan" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="9b349d8c-ddef-4ab6-8b8e-85bf4faa623d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="oguzhan_O 2016-03-24 12_39_03">
+      <DeploymentItem filename="O:\Projects\MaestroPanelApi_CSharp_Sample\MaestroPanelApi\bin\Release\MaestroPanelApi.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2016-03-24T12:39:03.0912113+02:00" queuing="2016-03-24T12:39:04.4355985+02:00" start="2016-03-24T12:39:04.5786125+02:00" finish="2016-03-24T12:39:16.5835063+02:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="O" outcome="Error" timestamp="2016-03-24T12:39:16.5815042+02:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="SetDnsZoneTest" storage="o:\projects\maestropanelapi_csharp_sample\maestropanelapi_test\bin\release\maestropanelapi_test.dll" id="86743773-0ff7-a51c-c892-f55e037e9873">
+      <Execution id="9228f243-51d1-4169-aa85-1455cf951e1f" />
+      <TestMethod codeBase="O:/Projects/MaestroPanelApi_CSharp_Sample/MaestroPanelApi_Test/bin/Release/MaestroPanelApi_Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MaestroPanelApi_Test.ClientTest, MaestroPanelApi_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetDnsZoneTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="86743773-0ff7-a51c-c892-f55e037e9873" executionId="9228f243-51d1-4169-aa85-1455cf951e1f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9228f243-51d1-4169-aa85-1455cf951e1f" testId="86743773-0ff7-a51c-c892-f55e037e9873" testName="SetDnsZoneTest" computerName="O" duration="00:00:11.8338595" startTime="2016-03-24T12:39:04.7486459+02:00" endTime="2016-03-24T12:39:16.5825054+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9228f243-51d1-4169-aa85-1455cf951e1f">
+    </UnitTestResult>
+  </Results>
+</TestRun>
