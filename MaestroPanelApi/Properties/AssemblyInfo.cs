@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MaestroPanelApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MaestroPanel Rest API")]
+[assembly: AssemblyDescription("MaestroPanel Rest API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MaestroPanelApi")]
+[assembly: AssemblyCompany("MaestroPanel Rest API")]
+[assembly: AssemblyProduct("MaestroPanel Rest API")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
