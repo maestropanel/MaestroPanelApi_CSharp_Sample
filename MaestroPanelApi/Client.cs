@@ -240,14 +240,15 @@ using System.Collections.Generic;
 
             return SendApi("Domain/DeleteFtpAccount", "POST", _args);
         }
-        
-        public ApiResult ChangeFtpPassword(string name, string account, string newpassword)
+
+        public ApiResult ChangeFtpPassword(string name, string account, string newpassword, bool suppress_password_policy = false)
         {
             var _args = new NameValueCollection();
             _args.Add("key", _apiKey);
             _args.Add("name", name);
             _args.Add("account", account);
             _args.Add("newpassword", newpassword);
+            _args.Add("suppress_password_policy", suppress_password_policy.ToString());
 
             return SendApi("Domain/ChangeFtpPassword", "POST", _args);
         }
@@ -421,7 +422,7 @@ using System.Collections.Generic;
             {
                 HttpWebRequest request = WebRequest.Create(_uri) as HttpWebRequest;
                 request.Method = method;
-                request.Timeout = 120 * 1000;
+                request.Timeout = ((60 * 10) * 1000);
                 request.ContentType = "application/x-www-form-urlencoded";
 
                 WriteData(ref request, _parameters);
