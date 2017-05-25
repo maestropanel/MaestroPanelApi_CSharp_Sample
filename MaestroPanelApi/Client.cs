@@ -170,14 +170,14 @@ using System.Collections.Generic;
             return SendApi("Domain/ChangeMailBoxPassword", "POST", _args);
         }
 
-        public ExportPostOffice GetMailList(string name)
+        public ExportPostOfficeResult GetMailList(string name)
         {
             var _args = new NameValueCollection();
             _args.Add("key", _apiKey);
             _args.Add("name", name);
 
             var xmlString = GetData("Domain/GetMailList", "GET", _args);
-            return ApiResult.DeSerializeObject<ExportPostOffice>(xmlString);
+            return ApiResult.DeSerializeObject<ExportPostOfficeResult>(xmlString);
         }
 
         public ApiResult AddDatabase(string name, string dbtype, string database, string username, string password, int quota)
@@ -392,6 +392,15 @@ using System.Collections.Generic;
         private string GetData(string action, string method, NameValueCollection _parameters)
         {
             var _result = "";
+            if (method == "GET")
+            {
+                action += "?";
+                foreach (string item in _parameters)
+                {
+                    action += item + "=" + _parameters[item] + "&";
+                }
+                action = action.Substring(0, action.Length - 1);
+            }
             var _uri = new Uri(String.Format("{0}/{1}", _apiUri, action));
 
             try
@@ -401,7 +410,10 @@ using System.Collections.Generic;
                 request.Timeout = 120 * 1000;
                 request.ContentType = "application/x-www-form-urlencoded";
 
-                WriteData(ref request, _parameters);
+                if (method == "POST")
+                {
+                    WriteData(ref request, _parameters);
+                }
                 _result = GetData(request);
                 
             }
