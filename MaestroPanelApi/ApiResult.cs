@@ -116,13 +116,27 @@
     }
 
     [Serializable]
-    [XmlRoot("Domain")]
+    [XmlRoot("Result")]
+    public class ExportPostOfficeResult
+    {
+        [XmlElement(ElementName = "ErrorCode")]
+        public int Code { get; set; }
+
+        [XmlElement(ElementName = "StatusCode")]
+        public int StatusCode { get; set; }
+
+        [XmlElement(ElementName = "Message")]
+        public string Message { get; set; }
+
+        public ExportPostOffice Details { get; set; }
+    }
+
     public class ExportPostOffice
     {
-        [XmlAttribute]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("Quota")]
         public long Quota { get; set; }
 
         [XmlArray("Accounts")]
@@ -132,16 +146,16 @@
 
     public class ExportPostOfficeAccount
     {
-        [XmlAttribute]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("Status")]
         public bool Status { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("Quota")]
         public long Quota { get; set; }
 
-        [XmlAttribute]
+        [XmlAttribute("Usage")]
         public int Usage { get; set; }
     }
 
